@@ -1,0 +1,69 @@
+{
+    "intents": [
+        {
+            "tag": "open",
+            "patterns": ["open", "start", "launch", "visit"],
+            "responses": ["Opening the application.", "Launching now."]
+        },
+        {
+            "tag": "hello",
+            "patterns": ["Hi", "Hello", "Hey", "What's up?"],
+            "responses": ["Hello, how can I assist you?", "Hi, what can I do for you today?"]
+        },
+        {
+            "tag": "play_music",
+            "patterns": ["play music", "play song", "play some music", "can you play music?"],
+            "responses": ["Sure, playing music now!", "Okay, I'll play a song for you."]
+        },
+        {
+            "tag": "weather",
+            "patterns": ["What's the weather?", "Tell me the weather", "How's the weather today?", "Weather forecast"],
+            "responses": ["I will fetch the weather information for you.", "Let me check the weather for you."]
+        },
+        {
+            "tag": "search",
+            "patterns": ["search", "look up", "find", "search for"],
+            "responses": ["I will search for that information.", "Let me search for it."]
+        },
+        {
+            "tag": "shutdown",
+            "patterns": ["shutdown", "turn off", "power down", "shut down the system"],
+            "responses": ["Shutting down the system.", "Turning off the system."]
+        },
+        {
+            "tag": "set_alarm",
+            "patterns": ["set an alarm", "set alarm for", "wake me up at", "set alarm at"],
+            "responses": ["Setting alarm now.", "Your alarm is set."]
+        },
+        {
+            "tag": "open_file",
+            "patterns": ["open file", "open document", "open my file", "open the file"],
+            "responses": ["I will open the file for you.", "Opening the file now."]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": ["goodbye", "bye", "see you later", "take care"],
+            "responses": ["Goodbye! Have a nice day.", "See you later!"]
+        },
+        {
+            "tag": "generate_image",
+            "patterns": ["create an image of", "generate image of", "image for"],
+            "responses": ["Generating an image for your request..."]
+        },
+        {
+            "tag": "joke",
+            "patterns": ["tell me a joke", "make me laugh", "joke"],
+            "responses": ["Why don’t scientists trust atoms? Because they make up everything!", "What do you call fake spaghetti? An impasta!"]
+        },
+        {
+            "tag": "fact",
+            "patterns": ["tell me a fact", "give me a fact", "fact"],
+            "responses": ["Did you know? Honey never spoils.", "Fun fact: The Eiffel Tower can be 15 cm taller during the summer!"]
+        },
+        {
+            "tag": "news",
+            "patterns": ["tell me the news", "latest news", "news update"],
+            "responses": ["Here are the latest news headlines.", "Fetching the latest news for you."]
+        }
+    ]
+}
