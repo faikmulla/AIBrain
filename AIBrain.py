@@ -8,12 +8,12 @@ load_dotenv()
 # Constants from .env
 TUNE_API_URL = "https://proxy.tune.app/chat/completions"
 TUNE_API_KEY = open("Data\\Api.txt", "r").read().strip()  # Read API Key from file
-TUNE_ORG_ID = "38b21ece-28c7-4753-b92f-f275f4fdcfb4"  # Hardcoded Org ID
+TUNE_ORG_ID = "Your_tune_Org_ID"  # Hardcoded Org ID
 MODEL_ID = "openai/gpt-4o-mini"
 
 # Dynamic names from .env
 AI_NAME = ("Borax")  # Default to "Borax" if not found
-USER_NAME = ("Faik")  # Default to "Faik" if not found
+USER_NAME = ("YOUr_NAME")  # Default to "Faik" if not found
 
 # File paths
 CHAT_LOG_PATH = "DataBase\\chat_log.txt"
