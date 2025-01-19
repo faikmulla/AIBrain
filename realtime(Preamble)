@@ -6,3 +6,76 @@ def get_preamble():
             "I am designed to provide live updates, real-time information, and strategic decision-making. "
             "With the latest data and deep analytical capabilities, I am here to ensure you make informed "
             "choices in every situation. Let's get started!")
+
+def ReplyRealTime(question, chat_log=None):
+    """
+    Generate a response using TuneStudio API for real-time tasks and decision-making.
+    """
+    try:
+        # Ensure the chat log file exists
+        if not os.path.exists(CHAT_LOG_PATH):
+            with open(CHAT_LOG_PATH, "w", encoding="utf-8") as file_log:
+                file_log.write("")  # Create an empty file if it doesn't exist
+
+        # Read the existing chat log
+        with open(CHAT_LOG_PATH, "r", encoding="utf-8") as file_log:
+            chat_log_template = file_log.read()
+
+        # Use provided chat_log or fall back to file content
+        if chat_log is None:
+            chat_log = chat_log_template
+
+        # Prepare the preamble if the chat log is empty
+        if not chat_log.strip():
+            chat_log = get_preamble()
+
+        # Construct the prompt
+        prompt = f"{chat_log}\nYou: {question}\n{AI_NAME}: "
+
+        # Make a request to Tune API
+        response = requests.post(
+            TUNE_API_URL,
+            headers={
+                'Authorization': f'Bearer {TUNE_API_KEY}',
+                'Tune-Org-ID': TUNE_ORG_ID,
+                'Content-Type': 'application/json',
+            },
+            json={
+                'model': MODEL_ID,
+                'messages': [{"role": "user", "content": question}],
+                'max_tokens': 150,
+                'temperature': 0.7,
+                'top_p': 1.0,
+                'frequency_penalty': 0.5,
+                'presence_penalty': 0.0,
+            }
+        )
+
+        # Handle the response
+        if response.status_code == 200:
+            data = response.json()
+            if DEBUG:
+                print(f"Raw Response: {data}")
+
+            # Extract response from API
+            choices = data.get("choices", [])
+            if choices:
+                answer = choices[0]["message"]["content"].strip()
+                answer = ensure_consistent_identity(answer)
+            else:
+                answer = "No content received from the AI."
+        else:
+            answer = f"Error: {response.status_code}, {response.text}"
+
+        # Update the chat log
+        with open(CHAT_LOG_PATH, "a", encoding="utf-8") as file_log:
+            file_log.write(f"\nYou: {question}\n{AI_NAME}: {answer}")
+
+        return answer
+
+    except FileNotFoundError as fnf_error:
+        return f"File not found: {str(fnf_error)}"
+    except requests.exceptions.RequestException as req_error:
+        return f"API request failed: {str(req_error)}"
+    except Exception as e:
+        return f"An unexpected error occurred: {str(e)}"
