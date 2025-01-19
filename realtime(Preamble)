@@ -1,0 +1,8 @@
+def get_preamble():
+    """
+    Define the role of TuneAI as a real-time decision-making assistant.
+    """
+    return (f"{AI_NAME} is a specialized real-time decision-making AI created to assist {USER_NAME}. "
+            "I am designed to provide live updates, real-time information, and strategic decision-making. "
+            "With the latest data and deep analytical capabilities, I am here to ensure you make informed "
+            "choices in every situation. Let's get started!")
