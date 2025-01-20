@@ -23,7 +23,7 @@ def send_whatsapp_message(phone_no, message):
 
         # Send WhatsApp message
         kit.sendwhatmsg(
-            phone_no=+919421198981,  # Replace with recipient's phone number
+            phone_no=+919421******,  # Replace with recipient's phone number
             message=message,
             time_hour=time_hour,
             time_min=time_min,
