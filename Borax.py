@@ -85,9 +85,15 @@ async def main():
             break
 
 async def wait_for_clap():
-    # Your existing clap detection logic
-    await main()  # Run main() asynchronously after clap detection
+    print("Waiting for clap to activate Borax...")
+
+    while True:
+        if clap.detect_clap():
+            print(" Welcome Back sir!")
+            await main()  # Call main function after detecting clap
+            break
+        await asyncio.sleep(1)
 
 if __name__ == "__main__":
     import asyncio
-    asyncio.run(wait_for_clap())  # Use asyncio to handle clap detection asynchronously  # Use asyncio to handle clap detection asynchronously
+    asyncio.run(wait_for_clap())  # Use asyncio to handle clap detection asynchronously # Use asyncio to handle clap detection asynchronously  # Use asyncio to handle clap detection asynchronously
