@@ -7,6 +7,7 @@ def get_preamble():
             "With the latest data and deep analytical capabilities, I am here to ensure you make informed "
             "choices in every situation. Let's get started!")
 
+
 def ReplyRealTime(question, chat_log=None):
     """
     Generate a response using TuneStudio API for real-time tasks and decision-making.
@@ -79,3 +80,15 @@ def ReplyRealTime(question, chat_log=None):
         return f"API request failed: {str(req_error)}"
     except Exception as e:
         return f"An unexpected error occurred: {str(e)}"
+
+
+# Testing the module
+# if __name__ == "__main__":
+#     print(f"Hi {USER_NAME}, I am {AI_NAME}. I am your real-time assistant for decision-making and updates.")
+#     while True:
+#         question = input("Ask me anything (or type 'exit' to quit): ")
+#         if question.lower() == "exit":
+#             print(f"Goodbye, {USER_NAME}!")
+#             break
+#         response = ReplyRealTime(question)
+#         print(f"{AI_NAME}: {response}")
