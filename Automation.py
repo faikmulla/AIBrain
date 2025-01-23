@@ -20,7 +20,7 @@ def get_weather(query=""):
     Fetch weather information using OpenWeatherMap API.
     If no valid city is found in the query, default to Miraj, Maharashtra for generic queries.
     """
-    API_KEY = "2060cf9d21ecd23b5f5d2c7f784ac42b"
+    API_KEY = "your_weather_API_Key"
     query = query.lower().replace("weather", "").strip()  # Remove 'weather' from the query
 
     # Default city for generic queries
